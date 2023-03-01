@@ -10,5 +10,5 @@ export const typeOrmConfig: TypeOrmModuleOptions = {
   password: 'QwErTy2020',
   database: 'todoNestApp',
   entities: [UserEntity, TasksEntity],
-  synchronize: true,
+  synchronize: false,
 }

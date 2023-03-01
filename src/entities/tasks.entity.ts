@@ -1,9 +1,9 @@
 import { BaseEntity, Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity('tasks')
-export class TasksEntity extends BaseEntity{
+export class TasksEntity extends BaseEntity {
 
-  @PrimaryGeneratedColumn({type: "int", comment: "Unique guess identifier",})
+  @PrimaryGeneratedColumn('increment',{type: "int", comment: "Unique guess identifier",})
   id: number
 
   @Column({type: "varchar"})
@@ -12,8 +12,8 @@ export class TasksEntity extends BaseEntity{
   @Column({type: "varchar"})
   description: string;
 
-  @Column({type: "date"})
-  createdAt: Date;
+  @Column({type: "varchar"})
+  createdAt: string;
 
   @Column({type: "boolean"})
   isTaskDone: boolean;
