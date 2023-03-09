@@ -2,7 +2,6 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from "@nestjs/typeorm";
 import { TasksEntity } from "../entities/tasks.entity";
 import { Repository } from "typeorm";
-import { TaskModel } from "../models/task.model";
 
 @Injectable()
 export class TasksService {
@@ -14,14 +13,14 @@ export class TasksService {
   }
 
   public getDifferentTask(id: number) {
-    return this.tasksRepository.findOne({where: {id}})
+    return this.tasksRepository.findOne({where: {id}});
   }
 
-  public createNewTask(task: TaskModel) {
+  public createNewTask(task: TasksEntity) {
     return this.tasksRepository.save(task)
   }
 
-  public updateExistsUser(id: number, task: TaskModel) {
+  public updateExistsUser(id: number, task: TasksEntity) {
     return this.tasksRepository.update(id, task);
   }
 
