@@ -9,21 +9,21 @@ export class TasksController {
 
   @Get()
   public async getAllTasks() {
-    const users = await this.tasksService.getAllTasks();
+    const tasks = await this.tasksService.getAllTasks();
     return {
       statusCode: HttpStatus.OK,
       message: 'Tasks fetched successfully',
-      users: users
+      tasks: tasks
     }
   }
 
   @Get(':id')
   public async getDifferentUser(@Param('id') id: number) {
-    let user = await this.tasksService.getDifferentTask(id);
+    let task = await this.tasksService.getDifferentTask(id);
     return {
       statusCode: HttpStatus.OK,
-      message: user ? 'Task was found' : 'No Task found',
-      user: user
+      message: task ? 'Task was found' : 'No Task found',
+      task: task
     }
   }
 
@@ -48,10 +48,10 @@ export class TasksController {
 
   @Delete(':id')
   public async deleteExistsUser(@Param('id') id: string) {
-    let user = await this.tasksService.deleteExistsTask(Number(id))
+    let task = await this.tasksService.deleteExistsTask(Number(id))
     return {
       statusCode: HttpStatus.OK,
-      message: user ? 'Task deleted successfully' : 'No task found',
+      message: task ? 'Task deleted successfully' : 'No task found',
     }
   }
 
